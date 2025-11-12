@@ -3,6 +3,6 @@ import Header from "./Header";
 import Speciality from "./Speciality";
 import TopDoctors from "./TopDoctors";
 import Banner from "./Banner";
+import Footer from "./Footer";
 
-
-export {Navbar, Header, Speciality, TopDoctors, Banner}
+export {Navbar, Header, Speciality, TopDoctors, Banner, Footer}
