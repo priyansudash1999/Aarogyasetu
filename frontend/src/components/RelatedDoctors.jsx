@@ -1,11 +1,18 @@
-import React, { useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../context/AppContext'
+import { useNavigate } from 'react-router-dom'
 
-const TopDoctors = () => {
+const RelatedDoctors = ({docId, speciality}) => {
 
-  const navigate = useNavigate()
   const {doctors} = useContext(AppContext)
+  const [relatedDoctors, setRelatedDoctors] = useState([])
+  const navigate = useNavigate()
+  useEffect(() => {
+    if(doctors.length > 0 && speciality){
+      const doctorsData = doctors.filter((doc) => doc.speciality === speciality && doc._id !== docId)
+      setRelatedDoctors(doctorsData)
+    }
+  }, [doctors, speciality, docId])
 
   return (
     <div className='flex flex-col items-center gap-4 my-16 text-black md:mx-10'>
@@ -13,8 +20,8 @@ const TopDoctors = () => {
       <p className='sm:w-1/3 text-center text-sm'>Browse our list of experienced and trusted doctors ready to provide quality care.</p>
       <div className='w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 pt-5 gap-y-6 px-3 sm:px-0 gap-2'>
         {
-          doctors.slice(0,12).map((doctor, ind) => (
-            <div onClick={() => navigate(`/appointments/${doctor._id}`)} key={ind} className='border border-blue-300 rounded-xl overflow-hidden cursor-pointer hover:translate-y-2.5 transition-all duration-500'>
+          relatedDoctors.slice(0,5).map((doctor, ind) => (
+            <div  onClick={() => navigate(`/appointments/${doctor._id}`)} key={ind} className='border border-blue-300 rounded-xl overflow-hidden cursor-pointer hover:translate-y-2.5 transition-all duration-500'>
               <img src={doctor.image} alt="" className='bg-blue-50'/>
               <div className='p-4'>
                 <div className='flex items-center gap-2 text-sm text-center text-green-500'>
@@ -28,9 +35,8 @@ const TopDoctors = () => {
           ))
         }
       </div>
-      <button onClick={() => {navigate("/doctors"); scrollTo(0,0)}} className='px-12 py-3 mt-10 cursor-pointer bg-blue-50 text-gray-600 rounded-full'>More</button>
     </div>
   )
 }
 
-export default TopDoctors
+export default RelatedDoctors

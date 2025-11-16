@@ -79,7 +79,7 @@ const Doctors = () => {
         <div className='w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 pt-5 gap-y-6 px-3 sm:px-0 gap-2 -mt-3.5'>
           {filterDoctors.map((doctor, ind) => (
             <div 
-              onClick={() => navigate(`/appointment/${doctor._id}`)} 
+              onClick={() => navigate(`/appointments/${doctor._id}`)} 
               key={ind} 
               className='border border-blue-300 rounded-xl overflow-hidden cursor-pointer hover:translate-y-2.5 transition-all duration-500'
             >
