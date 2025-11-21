@@ -39,7 +39,7 @@ const Profile = () => {
       )}
       <hr className="bg-zinc-400 h-px border-none" />
       <div>
-        <p className="text-neutral-800 underline mt-3 text-xl">
+        <p className="text-neutral-800 underline mt-3 text-lg">
           Contact Information
         </p>
         <div className="grid grid-cols[1fr_3fr]">
@@ -151,17 +151,17 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <div>
+      <div className="mt-10">
         {isEdit ? (
           <button
-            className="bg-gray-500 px-2 py-1 rounded-2xl text-white"
+            className="bg-gray-500 px-4 py-1 rounded-2xl text-white border hover:bg-primary transition-all"
             onClick={() => setIsEdit(false)}
           >
             Save Info
           </button>
         ) : (
           <button
-            className="bg-cyan-400 text-white px-2 py-1 rounded-2xl"
+            className="bg-cyan-400 text-white px-4 py-1 rounded-2xl hover:bg-primary transition-all"
             onClick={() => setIsEdit(true)}
           >
             Edit
