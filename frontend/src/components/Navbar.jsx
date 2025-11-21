@@ -83,7 +83,7 @@ const Navbar = () => {
           } md:hidden right-0 top-0 bottom-0 overflow-hidden z-20 bg-white transition-all`}
         >
           <div className="flex items-center justify-between px-5 py-6">
-            <img src={assets.logo} alt="" className="w-36" />
+            <img src={assets.logo} alt="" className="w-24" />
             <img
               className="w-8 cursor-pointer"
               src={assets.cross_icon}
@@ -92,16 +92,32 @@ const Navbar = () => {
             />
           </div>
           <ul className="flex flex-col items-center gap-3 mt-2 font-semibold text-lg">
-            <NavLink onClick={() => setShowMenu(false)} to="/">
+            <NavLink
+              onClick={() => setShowMenu(false)}
+              to="/"
+              className="px-4 py-2 rounded inline-block active:bg-primary active:text-white "
+            >
               Home
             </NavLink>
-            <NavLink onClick={() => setShowMenu(false)} to="/doctors">
+            <NavLink
+              onClick={() => setShowMenu(false)}
+              to="/doctors"
+              className="px-4 py-2 rounded inline-block active:bg-primary active:text-white "
+            >
               All Doctors
             </NavLink>
-            <NavLink onClick={() => setShowMenu(false)} to="/about">
+            <NavLink
+              onClick={() => setShowMenu(false)}
+              to="/about"
+              className="px-4 py-2 rounded inline-block active:bg-primary active:text-white "
+            >
               About
             </NavLink>
-            <NavLink onClick={() => setShowMenu(false)} to="/contact">
+            <NavLink
+              onClick={() => setShowMenu(false)}
+              to="/contact"
+              className="px-4 py-2 rounded inline-block active:bg-primary active:text-white "
+            >
               Contact
             </NavLink>
           </ul>
