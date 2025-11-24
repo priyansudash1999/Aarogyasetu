@@ -1,12 +1,18 @@
 import express from "express"
 import cors from "cors"
 import { configDotenv } from "dotenv"
+import connectDb from "./config/mongodb.js"
 
 const app = express()
 const port = process.env.PORT || 4000
 
+connectDb()
+
+configDotenv()
+
 app.use(express.json())
 app.use(cors())
+
 
 
 app.get("/", (req, res) => {
@@ -16,3 +22,4 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`The app is running on ${port}`)
 })
+
