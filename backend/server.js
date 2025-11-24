@@ -2,11 +2,13 @@ import express from "express"
 import cors from "cors"
 import { configDotenv } from "dotenv"
 import connectDb from "./config/mongodb.js"
+import connectCloudinary from "./config/cloudinary.js"
 
 const app = express()
 const port = process.env.PORT || 4000
 
 connectDb()
+connectCloudinary()
 
 configDotenv()
 
