@@ -40,7 +40,7 @@ const doctorSchema = new Schema({
     type: Boolean,
     required: true
    },
-   fee:{
+   fees:{
     type: Number,
     required: true
    },
@@ -50,7 +50,6 @@ const doctorSchema = new Schema({
    },
    date:{
     type: Number,
-    required: true
    },
    slotsBooked:{
     type: Object,
